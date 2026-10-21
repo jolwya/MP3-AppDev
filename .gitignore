@@ -1,0 +1,8 @@
+# NetBeans local user properties and caches
+**/nbproject/private/
+build/
+dist/
+
+# System files
+.DS_Store
+Thumbs.db
