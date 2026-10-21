@@ -8,11 +8,29 @@
     
     <!--Login-->
     <servlet>
-        
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>controllers.LoginServlet</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>password123</param-value>
+        </init-param>
     </servlet>
     
     <!--CharacterCounting-->
     <servlet>
-        
+        <servlet-name>CharacterCountingServlet</servlet-name>
+        <servlet-class>controllers.CharacterCountingServlet</servlet-class>
+     <init-param>
+            <param-name>digits</param-name>
+            <param-value>0123456789</param-value>
+        </init-param>
+        <init-param>
+            <param-name>vowels</param-name>
+            <param-value>aeiouAEIOU</param-value>
+        </init-param>
     </servlet>
 </web-app>
