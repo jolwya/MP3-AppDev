@@ -16,20 +16,9 @@ public class CharacterCountingServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-
         this.digitsParam = config.getInitParameter("digits");
         this.vowelsParam = config.getInitParameter("vowels");
         this.consonantsParam = config.getInitParameter("consonants");
-
-        if (this.digitsParam == null) {
-            this.digitsParam = "0123456789";
-        }
-        if (this.vowelsParam == null) {
-            this.vowelsParam = "aeiouAEIOU";
-        }
-        if (this.consonantsParam == null) {
-            this.consonantsParam = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
-        }
     }
 
     @Override
@@ -56,11 +45,11 @@ public class CharacterCountingServlet extends HttpServlet {
                 continue;
             }
 
-            if (digitsParam.indexOf(ch) != -1) {
+            if (digitsParam != null && digitsParam.indexOf(ch) != -1) {
                 digitCount++;
-            } else if (vowelsParam.indexOf(ch) != -1) {
+            } else if (vowelsParam != null && vowelsParam.indexOf(ch) != -1) {
                 vowelCount++;
-            } else if (consonantsParam.indexOf(ch) != -1) {
+            } else if (consonantsParam != null && consonantsParam.indexOf(ch) != -1) {
                 consonantCount++;
             } else {
                 symbolCount++;
