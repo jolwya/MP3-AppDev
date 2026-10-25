@@ -7,6 +7,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     line-height: 1.5;
     background-color: #f5eedc;
@@ -20,6 +21,11 @@ body {
 header, footer {
     text-align: center;
     margin: 15px 0;
+}
+
+.footer-bar,
+.bar:last-child {
+    margin-top: auto;
 }
 
 h1 {

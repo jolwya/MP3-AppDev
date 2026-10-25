@@ -5,6 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="bar">
+<div class="bar footer-bar">
     <p><strong>${applicationScope.mpIdentifier}</strong> - STARTED: <%= application.getAttribute("appStartDate") %></p>
 </div>
