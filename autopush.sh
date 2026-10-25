@@ -1,8 +1,8 @@
 #!/bin/bash
 
 while true; do
-    sleep 15
-    cd /Users/caitlinjuliaamparo/MP3-AppDev
+    sleep 30
+    cd ~/NetBeansProjects/MP3-AppDev
 
     if [ -n "$(git status --porcelain)" ]; then
         git add .
