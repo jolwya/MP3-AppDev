@@ -15,11 +15,11 @@
 
         <jsp:include page="header.jsp" />
 
-        <div style="padding:30px;">
+        <div class="page-content login-container">
             <h2>Login</h2>
             <form action="LoginServlet" method="post">
-                <p>Username: <input type="text" placeholder="admin" name="username"></p>
-                <p>Password: <input type="password" placeholder="password123" name="password"></p>
+                <p>Username: <br><input type="text" placeholder="admin" name="username"></p>
+                <p>Password: <br><input type="password" placeholder="password123" name="password"></p>
                 <p><input type="submit" value="Login"></p>
             </form>
         </div>
