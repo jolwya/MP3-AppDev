@@ -37,7 +37,7 @@ textarea {
     box-sizing: border-box;
     font-family: inherit;
     font-size: 0.95rem;
-    padding: 10px 12px;
+    padding: 12px 14px;
     border: 1.5px solid #ccc;
     border-radius: 10px;
 }
@@ -68,9 +68,9 @@ input[type="submit"]:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 18px;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     border: 1px solid #e0e0e0;
 }
@@ -78,7 +78,7 @@ table {
 th, td {
     border: 1px solid #e0e0e0;
     text-align: left;
-    padding: 10px 12px;
+    padding: 12px 16px;
 }
 
 th {
@@ -102,7 +102,9 @@ th {
 
 .counter-container,
 .card-wide {
-    max-width: 540px;
+    max-width: 620px;
+    margin: 40px auto;
+    padding: 42px 48px;
 }
 
 .login-container h2,
