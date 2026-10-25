@@ -11,15 +11,19 @@
         <title>Login</title>
     </head>
     <body>
-        <!--header-->
-        
-        <h2>Login</h2>
-        <form action="LoginServlet" method="post">
-            <p>Username: <input type="text" placeholder="admin" name="username"></p>
-            <p>Password: <input type="password" placeholder="password123" name="password"></p>
-            <p><input type="submit" name="Login"></p>
-        </form>
-        
-        <!--footer-->
+
+        <jsp:include page="header.jsp" />
+
+        <div style="padding:30px;">
+            <h2>Login</h2>
+            <form action="LoginServlet" method="post">
+                <p>Username: <input type="text" placeholder="admin" name="username"></p>
+                <p>Password: <input type="password" placeholder="password123" name="password"></p>
+                <p><input type="submit" value="Login"></p>
+            </form>
+        </div>
+
+        <jsp:include page="footer.jsp" />
+
     </body>
 </html>
