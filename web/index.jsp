@@ -15,7 +15,7 @@
 
         <jsp:include page="header.jsp" />
 
-        <div class="page-content login-container">
+        <div class="card-container">
             <h2>Login</h2>
             <form action="LoginServlet" method="post">
                 <p>Username: <br><input type="text" placeholder="admin" name="username"></p>

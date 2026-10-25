@@ -13,15 +13,16 @@
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
     <body>
+
         <jsp:include page="header.jsp" />
-        
-        <div class="page-content" style="padding: 30px;">
+
+        <div class="card-container card-wide">
             <h2>Character Counter</h2>
            
             <form action="CharacterCountingServlet" method="POST">
                 <p>
                     <label for="inputString">Enter String:</label><br>
-                    <textarea id="inputString" name="inputString" rows="4" cols="50" required><%=request.getAttribute("submittedString") != null ? request.getAttribute("submittedString") : "" %></textarea>
+                    <textarea id="inputString" name="inputString" rows="4" required><%=request.getAttribute("submittedString") != null ? request.getAttribute("submittedString") : "" %></textarea>
                 </p>
                 
                 <p>
@@ -29,35 +30,30 @@
                 </p>
             </form>
             
-            <% if(request.getAttribute("hasResults")!=null) { %>
-            <hr>
-            <h3>Results</h3>
-            <table border="1" cellpadding="6" cellspacing="0">
+            <% if(request.getAttribute("hasResults") != null) { %>
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #e0e0e0;">
+            <h3 style="font-size: 1.15rem; color: #1a1f3c; margin-bottom: 10px;">Results</h3>
+            <table>
                 <tr>
                     <th>Metric</th>
                     <th>Count</th>
                 </tr>
-                
                 <tr>
                     <td>String length</td>
                     <td><%= request.getAttribute("stringLength") %></td>
                 </tr>
-            
                 <tr>
                     <td>Number of digits</td>
                     <td><%= request.getAttribute("digitCount") %></td>
                 </tr>
-                
                 <tr>
                     <td>Number of vowels</td>
                     <td><%= request.getAttribute("vowelCount") %></td>
                 </tr>
-                
                 <tr>
                     <td>Number of consonants</td>
                     <td><%= request.getAttribute("consonantCount") %></td>
                 </tr>
-                
                 <tr>
                     <td>Number of symbols</td>
                     <td><%= request.getAttribute("symbolCount") %></td>
@@ -65,7 +61,8 @@
             </table>
             <% } %>
         </div>
-        
+
         <jsp:include page="footer.jsp" />
+
     </body>
 </html>
