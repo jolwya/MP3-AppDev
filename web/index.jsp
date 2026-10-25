@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>User Login</title>
+        <title>Login</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
     </head>
     <body>
@@ -16,7 +16,7 @@
         <jsp:include page="header.jsp" />
 
         <div class="card-container">
-            <h2>Login</h2>
+            <h2>User Login</h2>
             <form action="LoginServlet" method="post">
                 <p>Username: <br><input type="text" placeholder="admin" name="username"></p>
                 <p>Password: <br><input type="password" placeholder="password123" name="password"></p>
