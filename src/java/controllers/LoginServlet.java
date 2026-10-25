@@ -25,31 +25,31 @@ public class LoginServlet extends HttpServlet{
         //checks if field is empty + errors
         String error = null;
         if (username.equals("") && password.equals("")){
-            request.setAttribute("errorMessage", "Please enter both username and password.");
+            request.setAttribute("errorMessage", "Username and Password are required.");
             RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
             rd.forward(request,response);
         }
         //no username entered
         else if (username.equals("")){
-            request.setAttribute("errorMessage", "Please enter username.");
+            request.setAttribute("errorMessage", "Username is required.");
             RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
             rd.forward(request,response);
         }
         //no password entered
         else if (password.equals("")){
-            request.setAttribute("errorMessage", "Please enter password.");
+            request.setAttribute("errorMessage", "Password is required.");
             RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
             rd.forward(request,response);
         }
         //incorrect username
         else if (!username.equals(correctUser)){
-            request.setAttribute("errorMessage", "Please enter correct username.");
+            request.setAttribute("errorMessage", "Username is incorrect.");
             RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
             rd.forward(request,response);
         }
         //incorrect password
         else if (!password.equals(correctPassword)){
-            request.setAttribute("errorMessage", "Please enter correct password.");
+            request.setAttribute("errorMessage", "Password is incorrect.");
             RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
             rd.forward(request,response);
         }
