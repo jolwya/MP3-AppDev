@@ -5,36 +5,14 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-/**
- * ServletContextListener that initializes startup date and time,
- * as well as common header and footer information for the web application.
- */
 public class AppContextListener implements ServletContextListener {
 
-    @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        ServletContext context = sce.getServletContext();
+    public void contextInitialized(ServletContextEvent sc) {
+        ServletContext context = sc.getServletContext();
 
-        // 1. Instantiate a Date object representing startup date and time
-        Date startupDate = new Date();
-        context.setAttribute("serverDate", startupDate);
-
-        // 2. Configure Header Information
-        String headerText = context.getInitParameter("headerText");
-        if (headerText == null || headerText.trim().isEmpty()) {
-            headerText = "SUBJECT / SECTION / LASTNAME1 - LASTNAME2";
-        }
-        context.setAttribute("headerText", headerText);
-
-        // 3. Configure Footer Information
+        context.setAttribute("appStartDate", new Date());
+        context.setAttribute("headerTitle", "ICS2608 | 2CSC | Amparo - Lorenzo - Reyes");
         context.setAttribute("mpIdentifier", "MP3");
-
-        System.out.println("[AppContextListener] Application initialized at: " + startupDate);
-        System.out.println("[AppContextListener] Header: " + headerText);
     }
-
-    @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("[AppContextListener] Application destroyed.");
-    }
+    public void contextDestroyed(ServletContextEvent sc) {}
 }
