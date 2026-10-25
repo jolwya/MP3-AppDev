@@ -6,5 +6,5 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="bar">
-    <p><strong>${applicationScope.mpIdentifier}</strong> " - "; App Started: <%= application.getAttribute("appStartDate") %></p>
+    <p><strong>${applicationScope.mpIdentifier}</strong> - App Started: <%= application.getAttribute("appStartDate") %></p>
 </div>
