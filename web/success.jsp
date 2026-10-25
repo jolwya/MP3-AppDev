@@ -15,7 +15,7 @@
     <body>
         <jsp:include page="header.jsp" />
         
-        <div style="padding: 20px;">
+        <div class="page-content" style="padding: 30px;">
             <h2>Character Counter</h2>
            
             <form action="CharacterCountingServlet" method="POST">
