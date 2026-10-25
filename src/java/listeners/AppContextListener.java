@@ -11,16 +11,14 @@ public class AppContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
 
-        // Current date and time representing startup time
+        // startup date & time 
         Date appStartDate = new Date();
         context.setAttribute("appStartDate", appStartDate);
 
-        // Header format: SUBJECT / SECTION / LASTNAME1 - LASTNAME2
+        // Header
         String headerTitle = "ICS2608 / 2CSC / AMPARO - LORENZO - REYES";
         context.setAttribute("headerTitle", headerTitle);
         context.setAttribute("appHeader", headerTitle);
-
-        // Machine Problem Identifier
         context.setAttribute("mpIdentifier", "MP3");
     }
 
