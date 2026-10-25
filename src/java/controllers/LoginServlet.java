@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controllers;
 
 import java.io.IOException;
@@ -12,51 +7,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginServlet extends HttpServlet{
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
-        //inputted
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        
-        //verify if user and pass are correct
-        String correctUser=getInitParameter("username");
-        String correctPassword=getInitParameter("password");
-        
-        //checks if field is empty + errors
-        String error = null;
-        if (username.equals("") && password.equals("")){
-            request.setAttribute("errorMessage", "Username and Password are required.");
-            RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
-            rd.forward(request,response);
+public class LoginServlet extends HttpServlet {
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        // Submitted credentials
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        // Initialization parameters configured in web.xml
+        String configuredUser = getServletConfig().getInitParameter("username");
+        String configuredPassword = getServletConfig().getInitParameter("password");
+
+        boolean isUserEmpty = (username == null || username.trim().isEmpty());
+        boolean isPassEmpty = (password == null || password.trim().isEmpty());
+
+        String errorMessage = null;
+
+        // Validation logic
+        if (isUserEmpty && isPassEmpty) {
+            errorMessage = "Both username and password fields are required.";
+        } else if (isUserEmpty) {
+            errorMessage = "Username field cannot be empty.";
+        } else if (isPassEmpty) {
+            errorMessage = "Password field cannot be empty.";
+        } else if (!username.equals(configuredUser)) {
+            errorMessage = "The username entered is incorrect.";
+        } else if (!password.equals(configuredPassword)) {
+            errorMessage = "The password entered is incorrect.";
         }
-        //no username entered
-        else if (username.equals("")){
-            request.setAttribute("errorMessage", "Username is required.");
-            RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
-            rd.forward(request,response);
+
+        if (errorMessage != null) {
+            request.setAttribute("errorMessage", errorMessage);
+            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+            rd.forward(request, response);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
+            rd.forward(request, response);
         }
-        //no password entered
-        else if (password.equals("")){
-            request.setAttribute("errorMessage", "Password is required.");
-            RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
-            rd.forward(request,response);
-        }
-        //incorrect username
-        else if (!username.equals(correctUser)){
-            request.setAttribute("errorMessage", "Username is incorrect.");
-            RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
-            rd.forward(request,response);
-        }
-        //incorrect password
-        else if (!password.equals(correctPassword)){
-            request.setAttribute("errorMessage", "Password is incorrect.");
-            RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
-            rd.forward(request,response);
-        }
-        //redirects user to success.jsp, if username and password are correct
-        else {
-            RequestDispatcher rd=request.getRequestDispatcher("success.jsp");
-            rd.forward(request,response);
-        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.sendRedirect("index.jsp");
     }
 }

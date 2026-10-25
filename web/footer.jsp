@@ -1,10 +1,8 @@
-<%-- 
-    Document   : footer
-    Created on : 10 25, 26, 1:45:18 PM
-    Author     : caitlinjuliaamparo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="bar">
-    <p><strong>${applicationScope.mpIdentifier}</strong> &nbsp;&bull;&nbsp; App Started: <%= application.getAttribute("appStartDate") %></p>
-</div>
+<footer class="app-footer">
+    <div class="footer-container">
+        <span class="footer-badge">${applicationScope.mpIdentifier}</span>
+        <span class="footer-divider">&bull;</span>
+        <span class="footer-text"><strong>Application Startup Time:</strong> ${applicationScope.appStartDate}</span>
+    </div>
+</footer>
